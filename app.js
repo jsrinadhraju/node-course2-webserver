@@ -15,9 +15,9 @@ app.use((req,res,next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -33,6 +33,14 @@ app.get("/about", (req, res) => {
   // res.send("About Page");
   res.render('about.hbs', {
     title: "About Title app",
+    year: new Date().getFullYear()
+  });
+})
+
+app.get("/list", (req, res) => {
+  // res.send("About Page");
+  res.render('list.hbs', {
+    title: "List App",
     year: new Date().getFullYear()
   });
 })
